@@ -52,9 +52,9 @@ class pay:
         return False
 
 
-# if __name__ == '__main__':
-#     alipay = alipay(APPID, private_key, public_key)
-#     payer = pay(out_trade_no="04",total_amount= 6,subject = "relive",timeout_express='5m')
-#     dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
-#     payer.get_qr_code(dict['qr_code'])
-#     payer.query_order(payer.out_trade_no)
+if __name__ == '__main__':
+    alipay = alipay(APPID, private_key, public_key)
+    payer = pay(out_trade_no="04",total_amount= 6,subject = "relive",timeout_express='5m')
+    dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
+    payer.get_qr_code(dict['qr_code'])
+    payer.query_order(payer.out_trade_no)

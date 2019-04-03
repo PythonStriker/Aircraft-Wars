@@ -70,7 +70,8 @@ class alipay:
         #print(params)
         # 发射http请求取回数据
         data = request.urlopen(self.requesturl, data=parse.urlencode(params).encode('gbk')).read().decode('gbk')
-        #print(parse.urlencode(params).encode('gbk'))
+        print(parse.urlencode(params).encode('gbk'))
+        print(data)
         return data
 
     def parse_response(self, params, **kwargs):

@@ -6,8 +6,12 @@ import enemy
 import bullet
 import supply
 from pygame.locals import *
-import tkinter
 from random import *
+from tkinter import *
+from PIL import Image,ImageTk
+
+Pay_or_not = False
+
 
 pygame.init()
 pygame.mixer.init()
@@ -496,7 +500,6 @@ def main():
             #绘制结束界面
             record_score_text = score_font.render("Best : %d" % record_score, True, (255, 255, 255))
             screen.blit(record_score_text, (50, 50))
-            
             gameover_text1 = gameover_font.render("Your Score", True, (255, 255, 255))
             gameover_text1_rect = gameover_text1.get_rect()
             gameover_text1_rect.left, gameover_text1_rect.top = \
@@ -527,9 +530,9 @@ def main():
                 pos = pygame.mouse.get_pos()
                 # 如果用户点击“重新开始”
                 if again_rect.left < pos[0] < again_rect.right and \
-                   ag=ain_rect.top < pos[1] < again_rect.bottom:
+                   again_rect.top < pos[1] < again_rect.bottom:
                     # 调用main函数，重新开始游戏
-                    main()
+                    pay_page()
                 # 如果用户点击“结束游戏”
                 elif gameover_rect.left < pos[0] < gameover_rect.right and \
                      gameover_rect.top < pos[1] < gameover_rect.bottom:
@@ -553,13 +556,35 @@ def main():
 
         clock.tick(60)
 
+def pay_page():
+    # main()
+    root = Tk()
+    root.geometry('250x380')
+    load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\qr_test_ali.png')
+    resized = load.resize((128,128))
+    resized.save("A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png")
+    load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png')
+    render = ImageTk.PhotoImage(load)
+    img = Label(root,image = render)
+    img.grid(row=0,column=0)
+    root.title('飞机大战支付页面')
+
+
+
+
+
+    root.mainloop()
+
+
+
 
 if __name__=="__main__":
-    try:
-        main()
-    except SystemExit:
-        pass
-    except:
-        traceback.print_exc()
-        pygame.quit()
-        input()
+    # try:
+    #     main()
+    # except SystemExit:
+    #     pass
+    # except:
+    #     traceback.print_exc()
+    #     pygame.quit()
+    #     input()
+    pay_page()

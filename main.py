@@ -621,12 +621,12 @@ def increase_OrderNumber():
 
 
 if __name__=="__main__":
-    # try:
-    #     main()
-    # except SystemExit:
-    #     pass
-    # except:
-    #     traceback.print_exc()
-    #     pygame.quit()
-    #     input()
-    pay_page()
+    try:
+       main()
+    except SystemExit:
+        pass
+    except:
+       traceback.print_exc()
+       pygame.quit()
+       input()
+    #pay_page()

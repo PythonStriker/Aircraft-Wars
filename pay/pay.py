@@ -1,4 +1,4 @@
-from self_Alipay import *
+from pay.self_Alipay import *
 import qrcode,time
 
 APPID = 2016092600601253
@@ -39,22 +39,21 @@ class pay:
         :param out_trade_no: 商户订单号
         :return: Nonem
         '''
-        _time = 0
-        for i in range(600):
-            time.sleep(1)
-            print('Now sleep 1s!')
-            result = alipay.init_alipay_cfg().api_alipay_trade_query(out_trade_no=out_trade_no)
-            if result.get("trade_status", "") == "TRADE_SUCCESS":
-                print('订单已支付!')
-                print('订单查询返回值：', result)
-                return True
-            _time += 2
-        return False
+
+        result = alipay.init_alipay_cfg().api_alipay_trade_query(out_trade_no=out_trade_no)
+        if result.get("trade_status", "") == "TRADE_SUCCESS":
+            print('订单已支付!')
+            print('订单查询返回值：', result)
+            return True
+        else:
+            return False
 
 
-if __name__ == '__main__':
-    alipay = alipay(APPID, private_key, public_key)
-    payer = pay(out_trade_no="04",total_amount= 6,subject = "relive",timeout_express='5m')
-    dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
-    payer.get_qr_code(dict['qr_code'])
-    payer.query_order(payer.out_trade_no)
+#
+# if __name__ == '__main__':
+#     alipay = alipay(APPID, private_key, public_key)
+#     payer = pay(out_trade_no="6",total_amount= 6,subject = "relive",timeout_express='5m')
+#     dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
+#     payer.get_qr_code(dict['qr_code'])
+#     time.sleep(30)
+#     print(payer.query_order(payer.out_trade_no))

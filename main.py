@@ -9,6 +9,19 @@ from pygame.locals import *
 from random import *
 from tkinter import *
 from PIL import Image,ImageTk
+import pay.pay
+import pay.self_Alipay
+import time
+
+APPID = 2016092600601253
+private_key = '''-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA0ZmM9+lQRa0VkHsUTywF0msOVUrXIupBIp0f3T6TPT/tGrHfut3VtiO/c3Ota8YnaqxFfXui4rF5DtidOs32bJdvq4L0aOnOSeE9g/JDwG7X+GeQ3e0pzfNxLhEFlULt8ks+N4A+mVH+E1Fdy07FnyEF/JmuPjIq/2SfbgwghOgda5dP3rKE5VeOlgUL2pJWA2ZbzMZHQ+iAsQKfx2NzIRiygo89GFE8knOKweWqHYFMiZ2y2J9QYMyBJrBIGh+PRiswMfBS6xpfupAf2u+8BTGMxhj+I6zs5JBP1upngD0YhpPifU+SSK3SjKF19dJImJWqhaZD0vQdXzNJRkCMcQIDAQABAoIBAQC5+YrRNd2Z1Tf7GJounZsU1xTCrUMyobPlqJDrWGiAwkX5l7YyMj87+4AWSp+nrwyuY+jMrHUcu+f0OlNYKAPs2nmlLu76X+pAN3DDsKRZDIDo0cwCfjrHmKfl/gh8JgTHJegwisQAenX8YgfdKynCRiTvutSWLyFjtr6XgH8iLM8tYxkG8MYDuhpsPJ3ToZi17WZtGMduolOWMwBtYx3IfzukOTJnEsIMPLFl/zqw5/1700vm4MvMIalQ2eiU13WGfRywMyd/u4ISQJ6V4HNgbr7RRFBitt/bCMF+3rBd4mDSv9+iamzyYP0sjaSk3PZVxViIEHTfYJ8htVl8UShZAoGBAO1QH3tzq3KHOQ84i9FDSzyZG1tKcyvzAcb5bTXJTmHHsMW7zTtuWTe8Ki1eeoh9USHY+v5jFG+Kyt4ej2Yez9UT8wlYvHOspkKx1TZb/3cYQ8txQkQKgb00XwRVzyqEia3jkgGTY8AVPdw9UZTIJ37Sj45gq0Wk8lcrzFFU2ornAoGBAOIaxXOA2MoYdHVRPTTHVkJ5YkoG7/0S9eCok+EVsKTJnm0VInXi5Uk+/72T8qbr1gw54/DlBqdEGGrWUHCmz7ro2tVInpQ0lnY8muTjhSu2o0CNV9VfAMDcyUgE7mhPJkx1Kplh1WypBqQTKalTxG5rm87eAB85lCSqi/8PCFrnAoGBAMVXFXbxTybj770KhqozzYLMxwT5OiDX6ShvDjPl/Lou9n7XlujO8H36iRBFOpv5qdf9uWqFNd8ziVOAEjsXcDh+aGHjWoLOlUts2iJkCmIc2XN58WLnYc/WlxThzm5K3LqvPSD2UcLPZyuYChkxADbkHeCF3qcBbUyz7SnM6BcNAoGAHpkq4W+tZuQaVooQ82SKiuJsZ8I6lhAL0ERgBtTtm89hLjfu+u8iwl/RMjGkY+yEghEPhNkpplczyrmIF0ar1AqRGs4CD+Jx/jxDZfhYXEsSGrlGCq0Zp//5CVMJhHo5n503j5xKyrKxIGErgSvB6IONiVhHwfID11ZxLao2Ij8CgYBUp6BHP2pS5gS/B421dWjrddVGUDzd5hws4FU3QzQOi1Wp4W2yTX7dhPC6MvpG4TikWN58eO2Jw1lIAF10ZBXwp6r6C0XKEwdrT9+xYen2fQLB9tZef/5eEe3tvxASP5eDBSL6c5+nIK/X6F+6KDtSwQXl0pI4ZvYvBaJcvYYmcw==
+-----END RSA PRIVATE KEY-----
+'''
+public_key = '''-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNcQoWf8TzYF1fhtmcTSytdRNhV8P+GkSUrn9aq7SKdW7MrI3i6qKXweNBtakgQlMBDcOjYU9qq4QpzouIO92IpNr51+S92pUuFlVA+Dmmp1Gw2hf6EQihYkIvS6sNJ6u/dJj0+GLr3/JKXgw0AanvxFMyaca5GxsAk41g+h3nYPKVWrXpisEKwvnSFQxZ8+BHJYu9BRC3XLO+y82HP9Ay10hsU3m7WrMfSoY5p1TuUDWFPax7oMfvLcZDewSiTorkKOJX7Xej0S5Jfy5uImY5wf3VePxNgP1V32+BpEsHRO8bZjuFtCpx/pR6HSXOBvAUIIRIqQ31SKfhO8Z5dufwIDAQAB
+-----END PUBLIC KEY-----
+'''
 
 Pay_or_not = False
 
@@ -558,22 +571,51 @@ def main():
 
 def pay_page():
     # main()
+
+
     root = Tk()
-    root.geometry('250x380')
+    root.geometry('160x160+250+250')
+    root.resizable(width=False, height=False)
+    #-------------------------------------------------------------------------------------------------------------------#
+    alipay = pay.self_Alipay.alipay(APPID, private_key, public_key)
+    orderNumber = increase_OrderNumber()
+    payer = pay.pay.pay(out_trade_no=orderNumber,total_amount= 6,subject = "relive",timeout_express='5m')
+    dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
+    payer.get_qr_code(dict['qr_code'])
+    # time.sleep(30)
+    # print(payer.query_order(payer.out_trade_no))
+    #-------------------------------------------------------------------------------------------------------------------#
     load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\qr_test_ali.png')
     resized = load.resize((128,128))
     resized.save("A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png")
     load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png')
     render = ImageTk.PhotoImage(load)
     img = Label(root,image = render)
-    img.grid(row=0,column=0)
+    prompt = Label(root,text='支付宝扫码获得永久复活(6元)')
+    prompt.grid(row=0,column=0)
+    img.grid(row=1,column=0)
     root.title('飞机大战支付页面')
 
-
-
-
-
     root.mainloop()
+
+
+def increase_OrderNumber():
+    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'r')
+    string = f.read()
+    f.close()
+    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'w')
+    string = str(eval(string) + 1)
+    f.write(str(string))
+    f.close()
+    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'r')
+    string = f.read()
+    f.close()
+    return string
+
+
+
+
+
 
 
 

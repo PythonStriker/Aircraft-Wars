@@ -173,7 +173,7 @@ class alipay:
             return resp
         return False
 
-    def init_alipay_cfg(self):
+    def init_alipay_cfg():
         alipay = AliPay(
             appid=APP_ID,
             app_notify_url=None,  # 默认回调url

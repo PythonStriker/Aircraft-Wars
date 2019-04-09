@@ -153,11 +153,11 @@ def main():
     is_double_bullet=False
     
 
-    #每30秒发送一个补给包
+    #每15秒发送一个补给包
     bullet_supply=supply.Bullet_Supply(bg_size)
     bomb_supply=supply.Bomb_Supply(bg_size)
     SUPPLY_TIME=USEREVENT
-    pygame.time.set_timer(SUPPLY_TIME,30*1000)
+    pygame.time.set_timer(SUPPLY_TIME,15*1000)
     
     
 
@@ -570,54 +570,51 @@ def main():
         clock.tick(60)
 
 def pay_page():
-    # main()
-
-
-    root = Tk()
-    root.geometry('160x160+250+250')
-    root.resizable(width=False, height=False)
+    global Pay_or_not
+    if Pay_or_not:
+        main()
+    else:
+        root = Tk()
+        root.geometry('170x170+800+400')
+        root.resizable(width=False, height=False)
     #-------------------------------------------------------------------------------------------------------------------#
-    alipay = pay.self_Alipay.alipay(APPID, private_key, public_key)
-    orderNumber = increase_OrderNumber()
-    payer = pay.pay.pay(out_trade_no=orderNumber,total_amount= 6,subject = "relive",timeout_express='5m')
-    dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
-    payer.get_qr_code(dict['qr_code'])
-    # time.sleep(30)
-    # print(payer.query_order(payer.out_trade_no))
+        alipay = pay.self_Alipay.alipay(APPID, private_key, public_key)
+        orderNumber = increase_OrderNumber()
+        payer = pay.pay.pay(out_trade_no=orderNumber,total_amount= 6,subject = "relive",timeout_express='5m')
+        dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
+        payer.get_qr_code(dict['qr_code'])
     #-------------------------------------------------------------------------------------------------------------------#
-    load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\qr_test_ali.png')
-    resized = load.resize((128,128))
-    resized.save("A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png")
-    load = Image.open('A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\\text.png')
-    render = ImageTk.PhotoImage(load)
-    img = Label(root,image = render)
-    prompt = Label(root,text='支付宝扫码获得永久复活(6元)')
-    prompt.grid(row=0,column=0)
-    img.grid(row=1,column=0)
-    root.title('飞机大战支付页面')
-
-    root.mainloop()
+        load = Image.open('.\pay\qrcode_image\qr_test_ali.png')
+        resized = load.resize((128,128))
+        resized.save(".\pay\qrcode_image\\test.png")
+        load = Image.open('.\pay\qrcode_image\\test.png')
+        render = ImageTk.PhotoImage(load)
+        img = Label(root,image = render)
+        prompt = Label(root,text='支付宝扫码获得永久复活(6元)')
+        prompt.grid(row=0,column=0)
+        img.grid(row=1,column=0)
+        root.title('飞机大战支付页面')
+        root.mainloop()
+        while (True):
+            time.sleep(10)
+            Pay_or_not = payer.query_order(payer.out_trade_no)
+            if Pay_or_not:
+                main()
+                root.destroy()
 
 
 def increase_OrderNumber():
-    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'r')
+    f = open('.\\pay\\PayDocument.txt', 'r')
     string = f.read()
     f.close()
-    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'w')
+    f = open('.\\pay\\PayDocument.txt', 'w')
     string = str(eval(string) + 1)
     f.write(str(string))
     f.close()
-    f = open('A:\\Study\\Document\\WorkSpace\\Python\\飞机大战\\pay\\PayDocument.txt', 'r')
+    f = open('.\\pay\\PayDocument.txt', 'r')
     string = f.read()
     f.close()
     return string
-
-
-
-
-
-
-
 
 
 if __name__=="__main__":
@@ -629,4 +626,4 @@ if __name__=="__main__":
        traceback.print_exc()
        pygame.quit()
        input()
-    #pay_page()
+

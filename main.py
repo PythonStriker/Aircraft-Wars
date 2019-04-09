@@ -5,6 +5,7 @@ import myplane
 import enemy
 import bullet
 import supply
+import threading
 from pygame.locals import *
 from random import *
 from tkinter import *
@@ -135,7 +136,7 @@ def main():
     gameover_rect = gameover_image.get_rect()
 
     #设置难度级别
-    level=1
+    level=3
 
     #全屏炸弹
     bomb_image=pygame.image.load("images/bomb.png").convert_alpha()
@@ -594,13 +595,23 @@ def pay_page():
         prompt.grid(row=0,column=0)
         img.grid(row=1,column=0)
         root.title('飞机大战支付页面')
+        th = threading.Thread(target=Pay_ensure,args=(root,payer,))
+        th.start()
+
         root.mainloop()
-        while (True):
+
+
+def Pay_ensure(root,payer):
+        global Pay_or_not
+        while(True):
             time.sleep(10)
+            print(payer.out_trade_no)
             Pay_or_not = payer.query_order(payer.out_trade_no)
             if Pay_or_not:
                 main()
                 root.destroy()
+                break
+
 
 
 def increase_OrderNumber():

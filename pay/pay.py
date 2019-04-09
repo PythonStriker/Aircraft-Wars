@@ -31,7 +31,7 @@ class pay:
         )
         qr.add_data(code_url)  # 二维码所含信息
         img = qr.make_image()  # 生成二维码图片
-        img.save(r'A:\Study\Document\WorkSpace\Github\Aircraft-Wars\pay\qrcode_image\qr_test_ali.png')
+        img.save(r'.\pay\qrcode_image\qr_test_ali.png')
         print('二维码保存成功！')
 
     def query_order(self,out_trade_no: int):

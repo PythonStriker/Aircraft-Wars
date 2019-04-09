@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9183ca96-944b-4632-b6d5-da6a39645845" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/venv/Lib/traceback.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9183ca96-944b-4632-b6d5-da6a39645845" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +22,28 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+            <state relative-caret-position="207">
+              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../Environment/python3.7/Lib/tkinter/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="2210" column="14" lean-forward="false" selection-start-line="2210" selection-start-column="8" selection-end-line="2210" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tkinter/test/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="traceback.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="traceback.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/traceback.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -164,6 +181,19 @@
               <item name="Aircraft-Wars" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Aircraft-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aircraft-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aircraft-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aircraft-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -179,6 +209,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Study\Document\WorkSpace\Github\Aircraft-Wars\venv\Lib\site-packages" />
       <recent name="A:\Study\Document\WorkSpace\Github\Aircraft-Wars\venv\Lib" />
       <recent name="E:\Study\Document\Python\飞机大战\pay\keys" />
       <recent name="D:\飞机大战\images" />
@@ -515,11 +546,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/enemy1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/enemy1_down4.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -681,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Environment/python3.7/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="2210" column="14" lean-forward="true" selection-start-line="2210" selection-start-column="8" selection-end-line="2210" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pay/keys/app_private_2048.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -734,14 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-747">
           <caret line="68" column="20" lean-forward="true" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myplane.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -792,14 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../Environment/python3.7/Lib/traceback.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -809,6 +811,38 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/traceback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myplane.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Environment/python3.7/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="2210" column="14" lean-forward="false" selection-start-line="2210" selection-start-column="8" selection-end-line="2210" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tkinter/test/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

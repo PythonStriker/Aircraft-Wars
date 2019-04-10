@@ -216,11 +216,14 @@ def main():
                         pygame.mixer.unpause()
             elif event.type==KEYDOWN:
                 if event.key==K_SPACE:
-                    bomb_num-=1
-                    bomb_sound.play()
-                    for each in enemies:
-                        if each.rect.bottom>0:
-                            each.active=False
+                    if bomb_num>0:
+                        bomb_num-=1
+                        bomb_sound.play()
+                        for each in enemies:
+                            if each.rect.bottom>0:
+                                each.active=False
+                    else:
+                        pass
             elif event.type==SUPPLY_TIME:
                 supply_sound.play()
                 if choice([True, False]):

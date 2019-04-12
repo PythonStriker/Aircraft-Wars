@@ -1,3 +1,4 @@
+__author__ = 'PythonStriker'
 import pygame
 import sys
 import traceback
@@ -25,7 +26,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNcQoWf8TzYF1fhtmcTSytdRNhV8P+GkSUrn
 '''
 
 Pay_or_not = False
-
+thread = False
 
 pygame.init()
 pygame.mixer.init()
@@ -90,6 +91,8 @@ def inc_speed(target,inc):
 
 
 def main():
+
+
     pygame.mixer.music.play(-1)
 
     #生成我方飞机
@@ -575,46 +578,71 @@ def main():
 
 def pay_page():
     global Pay_or_not
-    if Pay_or_not:
-        main()
-    else:
+    global thread
+    if (not Pay_or_not) and (not thread) :
         root = Tk()
         root.geometry('170x170+800+400')
         root.resizable(width=False, height=False)
-    #-------------------------------------------------------------------------------------------------------------------#
+        # -------------------------------------------------------------------------------------------------------------------#
         alipay = pay.self_Alipay.alipay(APPID, private_key, public_key)
         orderNumber = increase_OrderNumber()
-        payer = pay.pay.pay(out_trade_no=orderNumber,total_amount= 6,subject = "relive",timeout_express='5m')
-        dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no,total_amount=payer.total_amount,subject =payer.subject,timeout_express=payer.timeout_express )
+        payer = pay.pay.pay(out_trade_no=orderNumber, total_amount=6, subject="relive", timeout_express='5m')
+        dict = alipay.trade_pre_create(out_trade_no=payer.out_trade_no, total_amount=payer.total_amount,
+                                       subject=payer.subject, timeout_express=payer.timeout_express)
         payer.get_qr_code(dict['qr_code'])
-    #-------------------------------------------------------------------------------------------------------------------#
+        # -------------------------------------------------------------------------------------------------------------------#
         load = Image.open('.\pay\qrcode_image\qr_test_ali.png')
-        resized = load.resize((128,128))
+        resized = load.resize((128, 128))
         resized.save(".\pay\qrcode_image\\test.png")
         load = Image.open('.\pay\qrcode_image\\test.png')
         render = ImageTk.PhotoImage(load)
-        img = Label(root,image = render)
-        prompt = Label(root,text='支付宝扫码获得永久复活(6元)')
-        prompt.grid(row=0,column=0)
-        img.grid(row=1,column=0)
+        img = Label(root, image=render)
+        prompt = Label(root, text='支付宝扫码获得永久复活(6元)')
+        prompt.grid(row=0, column=0)
+        img.grid(row=1, column=0)
         root.title('飞机大战支付页面')
-        th = threading.Thread(target=Pay_ensure,args=(root,payer,))
-        th.start()
-
+        def Pay_ensure(payer):
+            global Pay_or_not
+            for i in range(1, 9):
+                print(i)
+                time.sleep(10)
+                print(payer.out_trade_no)
+                Pay_or_not = payer.query_order(payer.out_trade_no)
+                if Pay_or_not:
+                    root.destroy()
+                    main()
+                    break
+        thread = threading.Thread(target=Pay_ensure, args=(payer,))
+        thread.start()
         root.mainloop()
+    elif (not Pay_or_not) and thread:
+        root = Tk()
+        root.geometry('170x170+800+400')
+        root.resizable(width=False, height=False)
+        load = Image.open('.\pay\qrcode_image\\test.png')
+        render = ImageTk.PhotoImage(load)
+        img = Label(root, image=render)
+        prompt = Label(root, text='支付宝扫码获得永久复活(6元)')
+        prompt.grid(row=0, column=0)
+        img.grid(row=1, column=0)
+        root.title('飞机大战支付页面')
+        root.mainloop()
+    else:
+        main()
 
 
-def Pay_ensure(root,payer):
-        global Pay_or_not
-        while(True):
-            time.sleep(10)
-            print(payer.out_trade_no)
-            Pay_or_not = payer.query_order(payer.out_trade_no)
-            if Pay_or_not:
-                main()
-                root.destroy()
-                break
 
+# def Pay_ensure(root,payer):
+#         global Pay_or_not
+#         for i in range(1,9):
+#             print(i)
+#             time.sleep(10)
+#             print(payer.out_trade_no)
+#             Pay_or_not = payer.query_order(payer.out_trade_no)
+#             if Pay_or_not:
+#                 root.destory()
+#                 main()
+#                 break
 
 
 def increase_OrderNumber():
@@ -629,7 +657,6 @@ def increase_OrderNumber():
     string = f.read()
     f.close()
     return string
-
 
 if __name__=="__main__":
     try:

@@ -1,4 +1,5 @@
 __author__ = 'PythonStriker'
+
 import pygame
 import sys
 import traceback
@@ -35,7 +36,9 @@ bg_size=width,height=400,700
 screen=pygame.display.set_mode(bg_size)
 pygame.display.set_caption("飞机大战")
 
-background=pygame.image.load("images/background.png").convert()
+
+global background
+background=pygame.image.load("images/background1.png").convert()
 BLACK=(0,0,0)
 GREEN=(0,255,0)
 RED=(255,0,0)
@@ -91,14 +94,10 @@ def inc_speed(target,inc):
 
 
 def main():
-
-
+    global background
     pygame.mixer.music.play(-1)
-
     #生成我方飞机
     me=myplane.MyPlane(bg_size)
-
-    
 
     #中弹图片索引
     e1_destroy_index=0
@@ -144,6 +143,7 @@ def main():
     #全屏炸弹
     bomb_image=pygame.image.load("images/bomb.png").convert_alpha()
     bomb_rect=bomb_image.get_rect()
+
     bomb_font=pygame.font.Font("font/font.ttf",48)
     bomb_num=3
 
@@ -198,9 +198,7 @@ def main():
 
     #用于限制重复打开记录文件
     recorded=False
-    
 
-    
     while running:
         for event in pygame.event.get():
             if event.type==QUIT:
@@ -256,6 +254,7 @@ def main():
         #根据用户的得分增加难度
         if level==1 and score>50000:
             level=2
+            background = pygame.image.load("images/background2.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,3)
@@ -265,6 +264,7 @@ def main():
             inc_speed(small_enemies,1)
         elif level==2 and score>300000:
             level=3
+            background = pygame.image.load("images/background3.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,5)
@@ -275,6 +275,7 @@ def main():
             inc_speed(mid_enemies,1)
         elif level==3 and score>600000:
             level=4
+            background = pygame.image.load("images/background4.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,5)
@@ -285,6 +286,7 @@ def main():
             inc_speed(mid_enemies,1)
         elif level==4 and score>1000000:
             level=5
+            background = pygame.image.load("images/background1.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,5)
@@ -452,7 +454,7 @@ def main():
                         each.move()
                         screen.blit(each.image,each.rect)
                     else:
-                        #毁灭                    
+                        #毁灭
                         if not(delay%3):
                             if e1_destroy_index==0:
                                 enemy1_down_sound.play()
@@ -506,6 +508,7 @@ def main():
 
         #绘制游戏结束画面
         elif life_num==0:
+            background = pygame.image.load("images/background.png").convert()
             pygame.mixer.music.stop()
             pygame.mixer.stop()
             pygame.time.set_timer(SUPPLY_TIME,0)
@@ -603,7 +606,7 @@ def pay_page():
         root.title('飞机大战支付页面')
         def Pay_ensure(payer):
             global Pay_or_not
-            for i in range(1, 9):
+            for i in range(1, 100):
                 print(i)
                 time.sleep(10)
                 print(payer.out_trade_no)
@@ -629,21 +632,6 @@ def pay_page():
         root.mainloop()
     else:
         main()
-
-
-
-# def Pay_ensure(root,payer):
-#         global Pay_or_not
-#         for i in range(1,9):
-#             print(i)
-#             time.sleep(10)
-#             print(payer.out_trade_no)
-#             Pay_or_not = payer.query_order(payer.out_trade_no)
-#             if Pay_or_not:
-#                 root.destory()
-#                 main()
-#                 break
-
 
 def increase_OrderNumber():
     f = open('.\\pay\\PayDocument.txt', 'r')

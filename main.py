@@ -95,6 +95,7 @@ def inc_speed(target,inc):
 
 def main():
     global background
+    background = pygame.image.load("images/background1.png").convert()
     pygame.mixer.music.play(-1)
     #生成我方飞机
     me=myplane.MyPlane(bg_size)

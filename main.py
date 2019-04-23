@@ -195,7 +195,7 @@ def main():
     #生命数量
     life_image=pygame.image.load("images/life.png").convert_alpha()
     life_rect=life_image.get_rect()
-    life_num=3
+    life_num=1
 
     #用于限制重复打开记录文件
     recorded=False
@@ -253,7 +253,7 @@ def main():
                         paused_image=paused_nor_image
 
         #根据用户的得分增加难度
-        if level==1 and score>50000:
+        if level==1 and int(score)>50000:
             level=2
             background = pygame.image.load("images/background2.png").convert()
             upgrade_sound.play()
@@ -263,7 +263,7 @@ def main():
             add_big_enemies(big_enemies,enemies,1)
             #提升小型敌机的速度
             inc_speed(small_enemies,1)
-        elif level==2 and score>300000:
+        elif level==2 and int(score)>300000:
             level=3
             background = pygame.image.load("images/background3.png").convert()
             upgrade_sound.play()
@@ -274,7 +274,7 @@ def main():
             #提升小型敌机的速度
             inc_speed(small_enemies,1)
             inc_speed(mid_enemies,1)
-        elif level==3 and score>600000:
+        elif level==3 and int(score)>600000:
             level=4
             background = pygame.image.load("images/background4.png").convert()
             upgrade_sound.play()
@@ -285,7 +285,7 @@ def main():
             #提升小型敌机的速度
             inc_speed(small_enemies,1)
             inc_speed(mid_enemies,1)
-        elif level==4 and score>1000000:
+        elif level==4 and int(score)>1000000:
             level=5
             background = pygame.image.load("images/background1.png").convert()
             upgrade_sound.play()
@@ -516,18 +516,76 @@ def main():
             #读取历史最高得分
             if not recorded:
                 recorded=True
-                with open("record.txt","r") as f:
-                    record_score=int(f.read())
-                if score>record_score:
-                    with open("record.txt","w") as f:
-                        f.write(str(score))
+                score = str(score)
+                break_flag = 0
+                count = 0
+                f = open("record.txt", "r", encoding="utf-8")
+                lines = f.readlines()
+                for i in range(len(lines)):
+                    lines[i] = lines[i].replace('\n', '')
+                if score not in lines:
+                    for i in range(len(lines)):
+                        if eval(lines[i]) < eval(score):
+                            lines.insert(i, score)
+                            break_flag = 1
+                            i = i + 1
+                            break
+                        elif eval(lines[i]) == eval(score):
+                            break_flag = 1
+                            i = i+1
+                            break
+                if score not in lines:
+                    if not break_flag:
+                        lines.append(score)
+                        i = len(lines)+1
+                f.close()
+                f = open("record.txt", "w", encoding="utf-8")
+                for line in lines:
+                    f.write(line + '\n')
+                f.close()
+                # with open("record.txt","r") as f:
+                #     record_score=int(f.read())
+                # if score>record_score:
+                #     with open("record.txt","w") as f:
+                #         f.write(str(score))
             #绘制结束界面
-            record_score_text = score_font.render("Best : %d" % record_score, True, (255, 255, 255))
+            record_score_text = score_font.render("Best : " , True, (255, 255, 255))
             screen.blit(record_score_text, (50, 50))
+
+            record_score_text1 = score_font.render("1.%d" % int(lines[0]), True, (255, 255, 255))
+            record_score_text1_rect = record_score_text1.get_rect()
+            record_score_text1_rect.left,record_score_text1_rect.top= \
+                            (width - record_score_text1_rect.width)//2,90
+            screen.blit(record_score_text1,record_score_text1_rect)
+
+            record_score_text2 = score_font.render("2.%d" % int(lines[1]), True, (255, 255, 255))
+            record_score_text2_rect = record_score_text2.get_rect()
+            record_score_text2_rect.left, record_score_text2_rect.top = \
+                (width - record_score_text2_rect.width) // 2, record_score_text1_rect.bottom+10
+            screen.blit(record_score_text2, record_score_text2_rect)
+
+            record_score_text3 = score_font.render("3.%d" % int(lines[2]), True, (255, 255, 255))
+            record_score_text3_rect = record_score_text3.get_rect()
+            record_score_text3_rect.left, record_score_text3_rect.top = \
+                (width - record_score_text3_rect.width) // 2, record_score_text2_rect.bottom + 10
+            screen.blit(record_score_text3, record_score_text3_rect)
+
+            record_score_text4 = score_font.render("." , True, (255, 255, 255))
+            record_score_text4_rect = record_score_text4.get_rect()
+            record_score_text4_rect.left, record_score_text4_rect.top = \
+                (width - record_score_text4_rect.width) // 2, record_score_text3_rect.bottom
+            screen.blit(record_score_text4, record_score_text4_rect)
+
+            record_score_text5 = score_font.render("%d."%i + str(score), True, (255, 255, 255))
+            record_score_text5_rect = record_score_text5.get_rect()
+            record_score_text5_rect.left, record_score_text5_rect.top = \
+                (width - record_score_text5_rect.width) // 2, record_score_text4_rect.bottom
+            screen.blit(record_score_text5, record_score_text5_rect)
+
             gameover_text1 = gameover_font.render("Your Score", True, (255, 255, 255))
             gameover_text1_rect = gameover_text1.get_rect()
             gameover_text1_rect.left, gameover_text1_rect.top = \
-                                 (width - gameover_text1_rect.width) // 2, height // 3
+                                 (width - gameover_text1_rect.width) // 2, height // 2
             screen.blit(gameover_text1, gameover_text1_rect)
             
             gameover_text2 = gameover_font.render(str(score), True, (255, 255, 255))
@@ -544,7 +602,7 @@ def main():
 
             gameover_rect.left, gameover_rect.top = \
                                 (width - again_rect.width) // 2, \
-                                again_rect.bottom + 10
+                                again_rect.bottom +10
             screen.blit(gameover_image, gameover_rect)
 
             # 检测用户的鼠标操作

@@ -195,7 +195,7 @@ def main():
     #生命数量
     life_image=pygame.image.load("images/life.png").convert_alpha()
     life_rect=life_image.get_rect()
-    life_num=1
+    life_num=3
 
     #用于限制重复打开记录文件
     recorded=False

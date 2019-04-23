@@ -543,11 +543,6 @@ def main():
                 for line in lines:
                     f.write(line + '\n')
                 f.close()
-                # with open("record.txt","r") as f:
-                #     record_score=int(f.read())
-                # if score>record_score:
-                #     with open("record.txt","w") as f:
-                #         f.write(str(score))
             #绘制结束界面
             record_score_text = score_font.render("Best : " , True, (255, 255, 255))
             screen.blit(record_score_text, (50, 50))

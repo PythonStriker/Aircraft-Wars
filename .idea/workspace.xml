@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9183ca96-944b-4632-b6d5-da6a39645845" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/images/pause_nor.png" afterPath="$PROJECT_DIR$/images/pause_nor.png" />
+      <change beforePath="$PROJECT_DIR$/images/pause_pressed.png" afterPath="$PROJECT_DIR$/images/pause_pressed.png" />
+      <change beforePath="$PROJECT_DIR$/images/resume_nor.png" afterPath="$PROJECT_DIR$/images/resume_nor.png" />
+      <change beforePath="$PROJECT_DIR$/images/resume_pressed.png" afterPath="$PROJECT_DIR$/images/resume_pressed.png" />
       <change beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change beforePath="$PROJECT_DIR$/pay/PayDocument.txt" afterPath="$PROJECT_DIR$/pay/PayDocument.txt" />
       <change beforePath="$PROJECT_DIR$/pay/qrcode_image/qr_test_ali.png" afterPath="$PROJECT_DIR$/pay/qrcode_image/qr_test_ali.png" />
       <change beforePath="$PROJECT_DIR$/pay/qrcode_image/test.png" afterPath="$PROJECT_DIR$/pay/qrcode_image/test.png" />
       <change beforePath="$PROJECT_DIR$/record.txt" afterPath="$PROJECT_DIR$/record.txt" />
-      <change beforePath="$PROJECT_DIR$/测试文档2.docx" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +24,7 @@
     <SUITE FILE_PATH="coverage/Aircraft_Wars$self_Alipay.coverage" NAME="self_Alipay Coverage Results" MODIFIED="1554187665210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pay" />
     <SUITE FILE_PATH="coverage/$hello.coverage" NAME="hello Coverage Results" MODIFIED="1505442961553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$pay.coverage" NAME="pay Coverage Results" MODIFIED="1553525758894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pay" />
-    <SUITE FILE_PATH="coverage/Aircraft_Wars$main.coverage" NAME="main Coverage Results" MODIFIED="1556025785800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Aircraft_Wars$main.coverage" NAME="main Coverage Results" MODIFIED="1556028818540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$main.coverage" NAME="main Coverage Results" MODIFIED="1553497857923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -30,8 +32,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4554">
-              <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="547" column="52" lean-forward="true" selection-start-line="547" selection-start-column="52" selection-end-line="547" selection-end-column="52" />
               <folding>
                 <element signature="e#30#43#0" expanded="true" />
               </folding>
@@ -133,8 +135,8 @@
         <option value="$PROJECT_DIR$/pay/self_Alipay.py" />
         <option value="$PROJECT_DIR$/pay/pay.py" />
         <option value="D:/文档/PY/飞机大战源码/飞机大战源码/飞机大战/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/record.txt" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -145,10 +147,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="76" />
-    <option name="y" value="7" />
-    <option name="width" value="1362" />
-    <option name="height" value="1060" />
+    <option name="x" value="674" />
+    <option name="y" value="141" />
+    <option name="width" value="765" />
+    <option name="height" value="717" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="添加" />
@@ -174,6 +176,11 @@
             <path>
               <item name="Aircraft-Wars" type="b2602c69:ProjectViewProjectNode" />
               <item name="Aircraft-Wars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aircraft-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aircraft-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="pay" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -464,7 +471,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="76" y="7" width="1362" height="1060" extended-state="0" />
+    <frame x="674" y="141" width="765" height="717" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -472,9 +479,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35239208" sideWeight="0.50236964" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12431843" sideWeight="0.49763033" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19860627" sideWeight="0.49763033" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32886904" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17135207" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -809,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4554">
-          <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="547" column="52" lean-forward="true" selection-start-line="547" selection-start-column="52" selection-end-line="547" selection-end-column="52" />
           <folding>
             <element signature="e#30#43#0" expanded="true" />
           </folding>

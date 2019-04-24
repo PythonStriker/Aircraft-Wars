@@ -255,7 +255,7 @@ def main():
         #根据用户的得分增加难度
         if level==1 and int(score)>50000:
             level=2
-            background = pygame.image.load("images/background2.png").convert()
+            background = pygame.image.load("images/background3.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,3)
@@ -265,7 +265,7 @@ def main():
             inc_speed(small_enemies,1)
         elif level==2 and int(score)>300000:
             level=3
-            background = pygame.image.load("images/background3.png").convert()
+            background = pygame.image.load("images/background2.png").convert()
             upgrade_sound.play()
             #增加3加小型敌机、2加中型敌机、1加大型敌机
             add_small_enemies(small_enemies,enemies,5)
@@ -509,7 +509,7 @@ def main():
 
         #绘制游戏结束画面
         elif life_num==0:
-            background = pygame.image.load("images/background.png").convert()
+            background = pygame.image.load("images/background5.png").convert()
             pygame.mixer.music.stop()
             pygame.mixer.stop()
             pygame.time.set_timer(SUPPLY_TIME,0)
@@ -544,7 +544,7 @@ def main():
                     f.write(line + '\n')
                 f.close()
             #绘制结束界面
-            record_score_text = score_font.render("Best : " , True, (255, 255, 255))
+            record_score_text = score_font.render("Rank : " , True, (255, 255, 255))
             screen.blit(record_score_text, (50, 50))
 
             record_score_text1 = score_font.render("1.%d" % int(lines[0]), True, (255, 255, 255))
